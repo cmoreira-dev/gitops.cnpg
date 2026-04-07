@@ -9,7 +9,7 @@ metadata:
     - homelab
     - infrastructure
   annotations:
-    github.com/project-slug: cmoreira-dev/gitops.template
+    github.com/project-slug: cmoreira-dev/gitops.cnpg
     backstage.io/kubernetes-id: homelab-bootstrap-k3s
     argocd/app-name: '<ApplicationSet Name>'
   links:

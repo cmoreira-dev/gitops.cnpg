@@ -1,0 +1,4 @@
+name: cnpg-system
+namespace: cnpg-system
+type: helm
+wave: '1'
