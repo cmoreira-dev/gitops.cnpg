@@ -1,0 +1,11 @@
+apiVersion: v2
+name: <ChartName>-wrapper
+description: Wrapper chart to install <ChartName> via Helm
+type: application
+version: 0.1.0
+
+dependencies:
+  - name: <ChartName>
+    version: <ChartVersion>
+    repository: <ChartRepo>
+
