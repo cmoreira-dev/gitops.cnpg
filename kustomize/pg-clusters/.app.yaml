@@ -1,4 +1,0 @@
-name: pg-clusters
-namespace: cnpg-systemS
-type: kustomize
-wave: '5'

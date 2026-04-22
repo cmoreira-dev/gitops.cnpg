@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cnpg-backstage
+  namespace: echoserver
+spec:
+  project: homelab
+  source:
+    repoURL: https://github.com/cmoreira-dev/gitops.cnpg.git
+    targetRevision: main
+    path: kustomize/backstage
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cnpg-backstage
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
+      - CreateNamespace=true
