@@ -2,16 +2,16 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: cnpg-backstage
-  namespace: echoserver
+  namespace: argocd
 spec:
   project: homelab
   source:
-    repoURL: https://github.com/cmoreira-dev/gitops.cnpg.git
+    repoURL: https://github.com/cmoreira-dev/gitops.cloudflared.git
     targetRevision: main
-    path: kustomize/backstage
+    path: kustomize/cloudflared
   destination:
     server: https://kubernetes.default.svc
-    namespace: cnpg-backstage
+    namespace: cloudflared
   syncPolicy:
     automated:
       prune: true

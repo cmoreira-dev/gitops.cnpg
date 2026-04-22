@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: cnpg-system
-  namespace: echoserver
+  namespace: argocd
 spec:
   project: homelab
   source:
