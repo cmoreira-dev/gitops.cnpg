@@ -6,12 +6,12 @@ metadata:
 spec:
   project: homelab
   source:
-    repoURL: https://github.com/cmoreira-dev/gitops.cloudflared.git
+    repoURL: https://github.com/cmoreira-dev/gitops.cnpg.git
     targetRevision: main
-    path: kustomize/cloudflared
+    path: kustomize/backstage
   destination:
     server: https://kubernetes.default.svc
-    namespace: cloudflared
+    namespace: cnpg-backstage
   syncPolicy:
     automated:
       prune: true
