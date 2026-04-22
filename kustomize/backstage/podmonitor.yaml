@@ -11,7 +11,7 @@ metadata:
     cnpg.io/cluster: pg-backstage
     release: prometheus
   name: pg-backstage
-  namespace: backstage
+  namespace: cnpg-backstage
 spec:
   namespaceSelector: {}
   podMetricsEndpoints:
