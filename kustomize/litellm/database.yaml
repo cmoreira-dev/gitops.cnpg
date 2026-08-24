@@ -2,7 +2,11 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: litellm
-  namespace: cnpg-litellm
+  # Mesmo namespace do pod do LiteLLM (não cnpg-litellm dedicado, como
+  # cnpg-backstage): o Secret "litellm-app" que o CNPG gera automaticamente
+  # fica neste namespace, e secretKeyRef não atravessa namespace no
+  # Kubernetes — precisa estar junto de quem consome.
+  namespace: litellm
 spec:
   instances: 1
   imageName: ghcr.io/cloudnative-pg/postgresql:18

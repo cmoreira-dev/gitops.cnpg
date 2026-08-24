@@ -11,7 +11,7 @@ metadata:
     cnpg.io/cluster: litellm
     release: prometheus
   name: litellm
-  namespace: cnpg-litellm
+  namespace: litellm
 spec:
   namespaceSelector: {}
   podMetricsEndpoints:

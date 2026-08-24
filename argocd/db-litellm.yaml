@@ -11,7 +11,7 @@ spec:
     path: kustomize/litellm
   destination:
     server: https://kubernetes.default.svc
-    namespace: cnpg-litellm
+    namespace: litellm
   syncPolicy:
     automated:
       prune: true
