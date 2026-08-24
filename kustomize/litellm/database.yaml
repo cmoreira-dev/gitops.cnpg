@@ -1,0 +1,50 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: litellm
+  namespace: cnpg-litellm
+spec:
+  instances: 1
+  imageName: ghcr.io/cloudnative-pg/postgresql:18
+
+  storage:
+    # Sizing conservador: LiteLLM só guarda virtual keys, spend tracking e
+    # logs — nada de dataset grande. local-path suporta expansão
+    # (allowVolumeExpansion: true), então crescer depois é só subir este
+    # valor.
+    size: 8Gi
+
+  resources:
+    requests:
+      cpu: "150m"
+      memory: "384Mi"
+    limits:
+      cpu: "150m"
+      memory: "384Mi"
+
+  # Pin no control-plane (srv-k8s-master, o HP EliteDesk) em vez do pool
+  # geral de workers — não é workload crítico, instances: 1 é suficiente.
+  # O node tem o taint padrão de control-plane
+  # (node-role.kubernetes.io/control-plane:NoSchedule), daí a toleration.
+  affinity:
+    nodeSelector:
+      kubernetes.io/hostname: srv-k8s-master
+    tolerations:
+      - key: node-role.kubernetes.io/control-plane
+        operator: Exists
+        effect: NoSchedule
+
+  bootstrap:
+    initdb:
+      database: litellmdb
+      owner: litellmuser
+      postInitSQL:
+        - "ALTER ROLE litellmuser CREATEDB;"
+
+  postgresql:
+    parameters:
+      max_connections: "30"
+      shared_buffers: "64MB"
+
+  monitoring:
+    enablePodMonitor: true
