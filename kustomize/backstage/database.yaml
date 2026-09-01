@@ -10,12 +10,15 @@ spec:
   storage:
     size: 8Gi
 
+  # CPU 150m estava a estrangular o Postgres (throttling ~2.6 períodos/s no
+  # dashboard) mesmo com uso médio de ~30m — bursts de query batiam no teto.
+  # request == limit mantém QoS Guaranteed; o nó (rasp-worker-3) tem folga.
   resources:
     requests:
-      cpu: "150m"
+      cpu: "500m"
       memory: "384Mi"
     limits:
-      cpu: "150m"
+      cpu: "500m"
       memory: "384Mi"
 
   bootstrap:
