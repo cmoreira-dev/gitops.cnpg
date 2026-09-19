@@ -2,24 +2,21 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: Repo Template for GitOps Deployments
-  description: '<Description of the application>'
+  name: cnpg
+  description: >-
+    CloudNativePG operator plus the per-app Postgres Cluster resources it
+    manages (backstage, litellm) — each Cluster co-located in its
+    consumer's own namespace.
   tags:
     - kubernetes
     - homelab
     - infrastructure
+    - platform-addon
+    - database
   annotations:
     github.com/project-slug: cmoreira-dev/gitops.cnpg
-    backstage.io/kubernetes-id: homelab-bootstrap-k3s
-    argocd/app-name: '<ApplicationSet Name>'
-  links:
-    - url: '<Placeholder for the application URL>'
-      title: '<Placeholder for the application title>'
-      icon: dashboard
 spec:
-  type: website
-  lifecycle: lab
-#  owner: platform-team
-#  system: homelab
-#  dependsOn:
-#    - component:homelab-bootstrap-k3s
+  type: platform-addon
+  owner: platform-team
+  system: homelab-platform
+  lifecycle: production
