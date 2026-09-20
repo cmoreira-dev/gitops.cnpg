@@ -1,0 +1,8 @@
+site_name: 'gitops.cnpg'
+site_description: 'CloudNativePG operator and per-app Postgres clusters'
+
+nav:
+  - Home: index.md
+
+plugins:
+  - techdocs-core
