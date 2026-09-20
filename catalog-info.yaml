@@ -15,6 +15,7 @@ metadata:
     - database
   annotations:
     github.com/project-slug: cmoreira-dev/gitops.cnpg
+    backstage.io/techdocs-ref: dir:.
 spec:
   type: platform-addon
   owner: platform-team
