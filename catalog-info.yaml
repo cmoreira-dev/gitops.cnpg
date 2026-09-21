@@ -16,6 +16,7 @@ metadata:
   annotations:
     github.com/project-slug: cmoreira-dev/gitops.cnpg
     backstage.io/techdocs-ref: dir:.
+    argocd/app-name: 'cnpg-litellm'
 spec:
   type: platform-addon
   owner: platform-team
